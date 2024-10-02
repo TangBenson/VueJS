@@ -6,9 +6,9 @@ ref和reactive功能相近，但reactive用於物件會較方便(也只能用於
 而ref建議是搭配單純的輸入例如純文字使用
 */
 <template>
-  <input type="text" v-model="text" />
-  <input type="text" v-model="textobj.levels.text" />
-  <input type="text" v-model="textobj2.levels.text" />
+  <input type="text" v-model="text" /><br/>
+  <input type="text" v-model="textobj.levels.text" /><br/>
+  <input type="text" v-model="textobj2.levels.text" /><br/>
   <input type="text" v-model="textobj2.label" />
 </template>
 
@@ -37,7 +37,7 @@ const textobj2 = reactive({
   levels: {
     text: "",
   },
-  label: "123",
+  label: "前綴",
 });
 watch(
   [() => textobj2.levels.text, () => textobj2.label],
