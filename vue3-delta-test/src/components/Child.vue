@@ -1,7 +1,7 @@
 <template>
-  <h5>此行位於Child.vue組件</h5>
+  <h5>此區塊位於Child.vue組件，呈現父組件傳遞的訊息</h5>
+  {{ data }}
   <div>字數:{{ msgCount }}</div>
-  <!-- {{ data }} -->
 </template>
 
 <script setup>
@@ -11,7 +11,7 @@ import { watch } from "vue";
 // 簡化版 - 該語法糖定義組件(Child.vue)接收哪些外部資料(App.vue)
 // defineProps(['data']);
 
-// 正常版
+// 正常版 (物件的方式，可定義資料長相)
 const props = defineProps({
   data: {
     type: String,
@@ -27,9 +27,9 @@ const msgCount = computed(() => {
 // 定義子組件哪些事件可以發出去
 const emit = defineEmits(["update"]);
 
-// msgCount改變的值會放到 newValue 裡面
-watch(msgCount, (newValue) => {
-  emit("update", newValue);
+// 子組件發出update事件時一併攜帶newValue給父組件
+watch(() => props.data[props.data.length - 1], (newValue) => {
+  emit("update", `傳給父的: ${newValue}`);
 });
 </script>
 
