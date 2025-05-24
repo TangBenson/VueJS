@@ -1,9 +1,11 @@
 /*
-watch可以監看變數的改變
-watch預設監聽物件下第一層，除非設定deep:true，但這樣回傳會變成Proxy(響應式物件)
+v-model 提供了雙向數據绑定功能
 
-ref和reactive功能相近，但reactive用於物件會較方便(也只能用於物件)，
-而ref建議是搭配單純的輸入例如純文字使用
+watch可以監看變數的改變
+watch預設監聽物件下第一層，除非設定 deep:true，但這樣回傳會變成 Proxy(響應式物件)
+
+ref和 reactive功能相近，但 reactive用於物件會較方便(也只能用於物件)，
+而 ref建議是搭配單純的輸入例如純文字使用
 */
 <template>
   <input type="text" v-model="text" /><br/>

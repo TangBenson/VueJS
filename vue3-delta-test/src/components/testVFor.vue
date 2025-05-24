@@ -8,11 +8,15 @@ template最後一個P標籤
 */
 <template>
   <p v-for="text in dataList" :key="text.id">{{ text }}</p>
+  
   <h2>------------</h2>
+  
   <p v-for="(value, key, index) in dataObj" :key="index">
-    <span v-show="key !== 'key3'"> index : {{ index }}, key值 : {{ key }}, value : {{ value }} </span>
+    <span v-show="key !== 'key3'"> index值 : {{ index }}, key值 : {{ key }}, value值 : {{ value }} </span>
   </p>
+  
   <h2>------------</h2>
+  
   <p class="test-cls" :key="test">{{ test }}</p>
 </template>
 
@@ -22,9 +26,9 @@ import { ref } from "vue";
 const dataList = ["a", "b", "c"];
 const dataObj = { myKey1: "RO", myKey2: "龍族", myKey3: "天下無雙", myKey4: "天堂" };
 
-const test = ref("test");
+const test = ref("apple");
 setTimeout(() => {
-  test.value = "apple!";
+  test.value = "Nvidia !";
 }, 2000);
 </script>
 
